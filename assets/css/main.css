@@ -189,11 +189,21 @@ section { position: relative; }
   gap: 24px;
 }
 .nav__brand {
+  display: flex;
+  align-items: center;
   font-size: 0.9375rem;
   font-weight: 600;
   letter-spacing: -0.015em;
   white-space: nowrap;
 }
+.nav__brand img {
+  width: 31px;
+  height: 31px;
+  border-radius: 8px;
+  display: block;
+  transition: transform 0.4s var(--ease), opacity 0.3s var(--ease);
+}
+.nav__brand:hover img { transform: scale(1.06); opacity: 0.85; }
 .nav__list {
   display: flex;
   align-items: center;
