@@ -672,19 +672,47 @@ a.chip:hover { border-color: var(--ink); color: var(--ink); transform: translate
   pointer-events: none;
 }
 
+/* one spacing unit governs the whole hero: x1 between lines, x2 before the links */
+.landing__inner { --gap: clamp(18px, 2.4vw, 26px); }
+
 .landing__name {
-  font-size: clamp(3rem, 11vw, 8.2rem);
-  font-weight: 600;
-  letter-spacing: -0.045em;
-  line-height: 0.96;
-  margin-bottom: 20px;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(3rem, 11.5vw, 8.4rem);
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  margin-bottom: var(--gap);
+  display: inline-block;
+  transition: letter-spacing 0.7s var(--ease);
 }
+
+/* hover: a greyscale sheen crosses the name, nothing more */
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .landing__name {
+    background-image: linear-gradient(100deg,
+      var(--ink) 0%, var(--ink) 38%,
+      #9a9aa0 48%, #c9c9ce 52%, #9a9aa0 56%,
+      var(--ink) 66%, var(--ink) 100%);
+    background-size: 280% 100%;
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    transition: background-position 1.25s var(--ease), letter-spacing 0.7s var(--ease);
+  }
+  .landing__name:hover { background-position: 0 0; }
+}
+.landing__name:hover { letter-spacing: -0.018em; }
+
 .landing__role {
   font-size: clamp(1.05rem, 2.1vw, 1.5rem);
   font-weight: 400;
   letter-spacing: -0.02em;
   color: var(--ink);
-  margin-bottom: 16px;
+  margin-bottom: var(--gap);
 }
 .landing__role span { color: var(--ink-3); padding-inline: 6px; }
 
@@ -692,7 +720,7 @@ a.chip:hover { border-color: var(--ink); color: var(--ink); transform: translate
   font-size: 0.9375rem;
   letter-spacing: -0.008em;
   color: var(--ink-2);
-  margin-bottom: 42px;
+  margin-bottom: calc(var(--gap) * 2);
 }
 .landing__email a {
   border-bottom: 1px solid var(--line);
@@ -713,7 +741,7 @@ a.chip:hover { border-color: var(--ink); color: var(--ink); transform: translate
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px 12px;
+  gap: 12px;
 }
 .landing__links a {
   display: inline-flex;
