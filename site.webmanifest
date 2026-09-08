@@ -1,0 +1,13 @@
+{
+  "name": "Utsav Poudel — AI Researcher",
+  "short_name": "Utsav Poudel",
+  "description": "AI researcher in human-computer interaction, affective computing and digital health.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    { "src": "/assets/m/7.png", "sizes": "500x500", "type": "image/png", "purpose": "any" }
+  ]
+}

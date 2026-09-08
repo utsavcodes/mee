@@ -1,0 +1,15 @@
+# utsavpoudel.com.np
+User-agent: *
+Allow: /
+
+# Explicitly welcome the crawlers that matter for a name query
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+Sitemap: https://utsavpoudel.com.np/sitemap.xml
