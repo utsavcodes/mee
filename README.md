@@ -41,3 +41,12 @@ Then open <http://localhost:8080>.
 - The four numbers on `/about/` (citations, papers, patents, Fulcrum students) are
   the only figures that go stale; the live list is linked out to Google Scholar.
 - Update `sitemap.xml` `lastmod` when a page changes substantially.
+
+## Cloudflare caching — important when deploying
+
+The domain sits behind Cloudflare, which caches `/assets/**` for four hours
+(`cf-cache-status: HIT`). After changing CSS or JS, **bump the `?v=` number on the
+`main.css`, `main.js` and `hero.js` links** in `index.html`, `about/index.html` and
+`404.html` — a new URL is a cache miss, so visitors get the new file immediately.
+Otherwise your change is live on GitHub but invisible on the site for hours.
+HTML itself is not cached this way and updates within about a minute of a push.
