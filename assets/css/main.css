@@ -672,22 +672,20 @@ a.chip:hover { border-color: var(--ink); color: var(--ink); transform: translate
   pointer-events: none;
 }
 
-/* one spacing unit governs the whole hero: x1 between lines, x2 before the links */
-.landing__inner { --gap: clamp(18px, 2.4vw, 26px); }
+/* one spacing unit governs the whole hero — every gap is exactly this */
+.landing__inner { --gap: clamp(22px, 3vw, 34px); }
 
 .landing__name {
-  font-family: var(--serif);
-  font-style: italic;
-  font-size: clamp(3rem, 11.5vw, 8.4rem);
-  font-weight: 500;
-  letter-spacing: -0.025em;
-  line-height: 1;
+  font-size: clamp(3rem, 11vw, 8.2rem);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 0.96;
   margin-bottom: var(--gap);
   display: inline-block;
-  transition: letter-spacing 0.7s var(--ease);
+  transition: letter-spacing 1.4s var(--ease);
 }
 
-/* hover: a greyscale sheen crosses the name, nothing more */
+/* hover: a greyscale sheen crosses the name, slowly, and nothing else */
 @supports (-webkit-background-clip: text) or (background-clip: text) {
   .landing__name {
     background-image: linear-gradient(100deg,
@@ -701,11 +699,24 @@ a.chip:hover { border-color: var(--ink); color: var(--ink); transform: translate
     background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
-    transition: background-position 1.25s var(--ease), letter-spacing 0.7s var(--ease);
+    transition: background-position 2.6s var(--ease), letter-spacing 1.4s var(--ease);
   }
   .landing__name:hover { background-position: 0 0; }
 }
-.landing__name:hover { letter-spacing: -0.018em; }
+.landing__name:hover { letter-spacing: -0.04em; }
+
+/* origin mark — flag outline, no colour */
+.landing__origin {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: var(--gap);
+}
+.landing__origin svg { width: 13px; height: auto; display: block; }
 
 .landing__role {
   font-size: clamp(1.05rem, 2.1vw, 1.5rem);
@@ -720,7 +731,7 @@ a.chip:hover { border-color: var(--ink); color: var(--ink); transform: translate
   font-size: 0.9375rem;
   letter-spacing: -0.008em;
   color: var(--ink-2);
-  margin-bottom: calc(var(--gap) * 2);
+  margin-bottom: var(--gap);
 }
 .landing__email a {
   border-bottom: 1px solid var(--line);
@@ -764,8 +775,6 @@ a.chip:hover { border-color: var(--ink); color: var(--ink); transform: translate
   background: #fff;
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
 }
-.landing__links a.is-primary { background: var(--ink); color: #fff; border-color: var(--ink); }
-.landing__links a.is-primary:hover { background: #000; }
 .landing__links .ext { font-size: 0.75rem; color: currentColor; opacity: 0.5; }
 
 .landing__foot {
