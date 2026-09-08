@@ -715,7 +715,7 @@ a.chip:hover { border-color: var(--ink); color: var(--ink); transform: translate
 }
 .landing__name:hover { letter-spacing: -0.04em; }
 
-/* origin mark — flag outline, no colour */
+/* origin mark — monochrome silhouette that becomes the real flag on hover */
 .landing__origin {
   display: inline-flex;
   align-items: center;
@@ -725,8 +725,38 @@ a.chip:hover { border-color: var(--ink); color: var(--ink); transform: translate
   text-transform: uppercase;
   color: var(--ink-3);
   margin-bottom: var(--gap);
+  transition: color 0.3s var(--ease);
 }
-.landing__origin svg { width: 13px; height: auto; display: block; }
+.landing__origin:hover { color: var(--ink); }
+
+.landing__origin-flag {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+}
+.landing__origin-flag svg {
+  width: 13px;
+  height: auto;
+  display: block;
+  transition: opacity 0.35s var(--ease);
+}
+.landing__origin-emoji {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.35s var(--ease), transform 0.45s var(--ease);
+}
+.landing__origin:hover svg { opacity: 0; }
+.landing__origin:hover .landing__origin-emoji { opacity: 1; transform: scale(1); }
 
 .landing__role {
   font-size: clamp(1.05rem, 2.1vw, 1.5rem);
