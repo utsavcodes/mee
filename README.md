@@ -8,7 +8,7 @@ computing and digital health. Static HTML, no build step, served by GitHub Pages
 
 ```
 index.html          Landing — minimal type over an interactive graph-network canvas
-about/index.html    About & research — bio, publications, positions, Fulcrum, awards, FAQ, contact
+about/index.html    About & research — headline, numbers, code, Fulcrum, awards, contact
 assets/css/main.css Design system: white ground, black type, one motion vocabulary
 assets/js/main.js   Nav, scroll reveals, counters, FAQ accordion
 assets/js/hero.js   Landing canvas animation (no dependencies)
@@ -32,11 +32,12 @@ Then open <http://localhost:8080>.
 
 ## SEO notes
 
-- Both pages carry JSON-LD: `Person`, `WebSite`, `ProfilePage`, plus `AboutPage`,
-  `ItemList` of publications and `FAQPage` on `/about/`.
+- Both pages carry JSON-LD: `Person`, `WebSite` and `ProfilePage` on `/`, plus
+  `AboutPage` and `Person` on `/about/`. Schema only ever describes what is
+  actually visible on the page — if you add a section back, add its markup back.
 - The `sameAs` array is the important one — it ties this domain to Google Scholar,
   ResearchGate, LinkedIn, GitHub, Medium, Google Sites and Fulcrum. Keep it in sync
   whenever a profile is added or a handle changes.
-- Publication counts and citation numbers appear on `/about/`. They are the only
-  figures on the site that go stale; the live list is linked out to Google Scholar.
+- The four numbers on `/about/` (citations, papers, patents, Fulcrum students) are
+  the only figures that go stale; the live list is linked out to Google Scholar.
 - Update `sitemap.xml` `lastmod` when a page changes substantially.
